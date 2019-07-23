@@ -55,7 +55,7 @@ export default class Tableau extends Component {
                                     <td>{obj.place_reserve}</td>
                                     <td>{obj.prix}  €</td>
                                     <td>
-                                    <button type="submit" className="btn btn-success">Modifier</button></td>
+                                    <button type="submit" className="btn btn-success" id="inscrire-btn">Modifier</button></td>
                                     
                                 </tr>
                             })) : ('Aucun atelier a ajouter')
