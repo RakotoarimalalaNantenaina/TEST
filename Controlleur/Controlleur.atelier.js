@@ -40,7 +40,7 @@ exports.create = (req, res) => {
         horaire: req.body.horaire,
         duree:  req.body.duree,
         place_dispo: req.body.place_dispo,
-        place_reserve: req.body.place_reserve,    
+        place_reserve: req.body.place_reserve,
         prix: req.body.prix,
         photo_produit:'' + nomImage +'.jpg'
     });
@@ -82,4 +82,20 @@ exports.lireImage =(req, res) =>{
     } catch (e) {
         console.log("ts lasa le sary o", e.stack);
     }
+}
+
+exports.delete_atelier =(req, res) =>{
+    Produit.findById(req.params._id)
+    .then(atelier =>
+    atelier.remove().then(() =>
+        res.json({
+        success: true
+        })
+    )
+    )
+    .catch(err =>
+    res.status(404).json({
+        succes: false
+    })
+    )
 }

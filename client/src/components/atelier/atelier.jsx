@@ -1,5 +1,6 @@
 import React from 'react';
 import { MDBIcon,MDBCol,MDBInput,MDBCard, MDBCardBody} from "mdbreact";
+import Getatelier from './getatelier'
 
 class Atelier extends React.Component {
   constructor(props) {
@@ -14,8 +15,7 @@ class Atelier extends React.Component {
       place_dispo: '',
       place_reserve: '',
       photo_produit:'',
-      prix: ''
-
+      prix: '',
     };
 
     this.onChange = this.onChange.bind(this)
@@ -26,6 +26,7 @@ class Atelier extends React.Component {
         [event.target.name]: event.target.value
     })
 }
+
   handleUploadImage(ev) {
     ev.preventDefault();
 
@@ -54,16 +55,19 @@ class Atelier extends React.Component {
 
   render() {
     return (
-        <div> 
-        <center>
-      <MDBCol md="6">
+        <div className="container-fluid"> 
+         <div className="row">
+          <div className="col-md-4">
+          </div>
+          <div className="col-md-4">
+          <MDBCol md="12">
             <MDBCard width="50%">
               <MDBCardBody>
                 <form  onSubmit={this.handleUploadImage}>
                   <p className="h4 text-center py-4">Ajouter de nouveau atelier </p>
                   <div className="grey-text">
                     <MDBInput
-                      label="Nom du produit"
+                      label="Nom du l'atelier"
                       group
                       type="text"
                       validate
@@ -126,12 +130,12 @@ class Atelier extends React.Component {
                       error="wrong"
                       success="right" value={this.state.value} onChange={this.onChange}  name="prix"
                     />
-                  <label>Images de l'atelier : </label>  
+                  <label>Images de l'atelier : </label><br/>
                   <input ref={(ref) => { this.uploadInput = ref; }} type="file" name="photo_produit"/>
                   </div>
                   <div className="text-center">
                   <div className="text-center mt-4">
-                <button className="btn btn-outline-warning" type="submit">
+                <button className="btn btn-outline-warning" type="submit" id="ajouter_boutton">
                   Ajouter
                   <MDBIcon icon="paper-plane" className="ml-2" />
                 </button>
@@ -141,7 +145,12 @@ class Atelier extends React.Component {
               </MDBCardBody>
             </MDBCard>
           </MDBCol>
-          </center>
+          </div>
+          <div className="col-md-4">
+
+          </div>
+         </div> 
+         <Getatelier/>
       </div>
     );
   }

@@ -7,7 +7,6 @@ import { setCurrentUser, logoutUser } from "./actions/authActions";
 import { Provider } from "react-redux";
 import store from "./store";
 
-import Navbar from "./components/layout/Header";
 import Accueil from "./components/layout/Accueil";
 import Register from "./components/auth/Register";
 import Login from "./components/auth/Login";
@@ -40,8 +39,7 @@ class App extends Component {
     return (
       <Provider store={store}>
         <Router>
-          <div className="App">
-            <Navbar />
+          <div>
             <Route exact path="/" component={Accueil} />
             <Route exact path="/register" component={Register} />
             <Route exact path="/login" component={Login} />

@@ -4,4 +4,5 @@ module.exports = (app) => {
     app.post('/atelier', produit.create);
     app.get('/atelier', produit.findAll);
     app.get('/atelier/:image', produit.lireImage);
+    app.delete('/atelier/:_id', produit.delete_atelier);
 }

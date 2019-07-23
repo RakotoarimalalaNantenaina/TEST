@@ -1,4 +1,4 @@
-import { SET_CURRENT_USER, USER_LOADING } from "../actions/types";
+import { SET_CURRENT_USER, USER_LOADING,DELETE_ITEM, } from "../actions/types";
 
 const isEmpty = require("is-empty");
 
@@ -21,7 +21,14 @@ export default function(state = initialState, action) {
         ...state,
         loading: true
       };
+      case DELETE_ITEM:
+      return {
+        ...state,
+        items: state.items.filter(item => item._id !== action.payload)
+      };
+
     default:
       return state;
-  }
+    }
+ 
 }
