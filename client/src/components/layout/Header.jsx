@@ -29,7 +29,7 @@ class SideNavPage extends Component {
       <div>
         <MDBNavbar color="red" dark expand="md" style={{ marginTop: "1px" }} id="navbar">
           <MDBNavbarBrand>
-            <strong className="white-text">E-COM</strong>
+            <img src="logo.png" alt="Logo" id="logoimage"/>
           </MDBNavbarBrand>
           <MDBNavbarToggler onClick={this.toggleCollapse("navbarCollapse3")} />
           <MDBCollapse id="navbarCollapse3" isOpen={this.state.collapseID} navbar>
