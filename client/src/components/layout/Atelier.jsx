@@ -46,26 +46,20 @@ class Atelier extends Component {
                                         <p className="card-text"><strong><span id="description">Nombre de place reserve</span></strong>&nbsp;&nbsp; <div id="point">{user.place_reserve}</div> </p>
 
                                         <span className="spanprix">
-                                            <strong>Prix: {user.prix} Euro</strong>
+                                            <strong>Prix: {user.prix} €</strong>
                                         </span><br />
 
                                         <span class="float-right">
 
-                                            <span class="float-right">
-                                                <a href="#!" data-toggle="tooltip" data-placement="top" title="Ajouter au panier">
-                                                    <i class="fas fa-shopping-cart grey-text ml-3"></i>
-                                                </a>
-                                            </span>
+                                           <button className="btn btn-primary" id="inscrire-btn">S'inscrire</button>
 
                                         </span>
 
-                                        <div className="card-footer px-1">
                                         </div>
                                     </div>
 
                                 </div>
-                            </div>
-
+                           
                         ))
                     ) : (
                             <div>
