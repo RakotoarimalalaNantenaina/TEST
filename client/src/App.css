@@ -1,0 +1,52 @@
+#spanheader {
+    color: rgb(228, 163, 24);
+}
+#navbar {
+    background-color: #d05c62  !important;
+    margin-bottom: 5px !important;
+}
+.nav-header {
+    font-size: 20px;
+    font-weight: bold;
+}
+#boutton-inscrire {
+    background-color: #f3671f !important;
+}
+#carte {
+    box-shadow: 3px 0px 0px #d05c62;
+    padding-left: 70px;
+    margin-top: 50px;
+}
+#imageproduit {
+    border-radius: 5px !important;
+}
+#nomproduit {
+    font-size: 20px;
+    color: #d05c62;
+    font-weight: bold;
+}
+#h3vide{
+    padding-left: 100px;
+    color: #d05c62 !important;
+}
+.thtab {
+    color: #d05c62;
+    font-weight: bold;
+    font-size: 20px;
+    text-align: center;
+}
+td {
+    width: 90px;
+    text-align: center;
+    font-weight: bold;
+}
+#h4tableau {
+    color: #f3671f;
+    text-align: center;
+    font-weight: bolder;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+#ajouter_boutton {
+    height: 50px;
+}

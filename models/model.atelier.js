@@ -6,11 +6,11 @@ const UserSchema = new Schema({
   _id: {type:Number},
   titre: { type: String},
   description: { type: String},
-  date: { type: Date},
+  date: { type: String},
   horaire: {type: String},
   duree: {type: Number},
   place_dispo: {type: Number},
-  place_reserver: {type: Number},
+  place_reserve: {type: Number},
   prix: { type: Number},
   photo_produit:String,
 
