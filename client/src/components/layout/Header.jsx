@@ -27,7 +27,7 @@ class SideNavPage extends Component {
   
     return (
       <div>
-        <MDBNavbar color="red" dark expand="md" style={{ marginTop: "1px" }} id="navbar">
+        <MDBNavbar color="red" dark expand="md" style={{ marginTop: "1px" }} id="navbar" className="fixed-top" scrolling >
           <MDBNavbarBrand>
             <img src="logo.png" alt="Logo" id="logoimage"/>
           </MDBNavbarBrand>

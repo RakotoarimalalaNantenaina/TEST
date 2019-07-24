@@ -82,7 +82,7 @@ class Login extends Component {
                   id="email"
                   onChange={this.onChange}
                   value={this.state.email}
-                  error={errors.email}
+                  // error={errors.email}
                   className={classnames("", {
                     invalid: errors.email || errors.emailnotfound
                   })}
@@ -99,7 +99,7 @@ class Login extends Component {
                   type="password"
                   onChange={this.onChange}
                   value={this.state.password}
-                  error={errors.password}
+                  // error={errors.password}
                   id="password"
                   className={classnames("", {
                     invalid: errors.password || errors.passwordincorrect
@@ -111,7 +111,7 @@ class Login extends Component {
                 </span>
               </div>
               <div className="text-center">
-                <MDBBtn type="submit">Se Connecter</MDBBtn>
+                <MDBBtn type="submit" id="bouton-connecter">Se Connecter</MDBBtn>
               </div>
             </form>
           </MDBCol>

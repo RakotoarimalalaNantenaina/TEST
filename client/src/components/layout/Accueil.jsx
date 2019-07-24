@@ -9,13 +9,13 @@ class Accueil extends Component {
     return (
       <div className="container-fluid">
         <Header />
-        <div class="card card-image" id="header" style={{backgroundImage: 'url(' + imgUrl + ')', 
+        <div className="card card-image" id="header" style={{backgroundImage: 'url(' + imgUrl + ')', 
                                                           backgroundSize: 'cover', backgroundPosition: 'center center',backgroundRepeat: 'no-repeat',}}>
-          <div class="text-white text-center rgba-stylish-strong py-5 px-4">
-            <div class="py-5">
-              <h2 class="card-title h2 my-4 py-2">ATELIER DE CUISINE</h2>
-              <p class="mb-4 pb-2 px-md-5 mx-md-5">Ici vous voyez toutes les atéliers de cuisine. <span id="spanheader">Comment avoir une formation de bonne cuisinier ??</span></p>
-              <a class="btn peach-gradient" href="#!"><i class="fas fa-clone left"></i>Voir tous les ateliers</a>
+          <div className="text-white text-center rgba-stylish-strong py-5 px-4">
+            <div className="py-5">
+              <h2 id="h2accueil">ATELIER DE CUISINE</h2>
+              <p className="mb-4 pb-2 px-md-5 mx-md-5">Ici vous voyez toutes les atéliers de cuisine. <span id="spanheader">Comment avoir une formation de bonne cuisinier ??</span></p>
+              <a className="btn peach-gradient" href="#!" id="boutton-accueil"><i class="fas fa-clone left"></i>Voir tous les ateliers</a>
             </div>
           </div>
         </div>
