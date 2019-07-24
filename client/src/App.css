@@ -96,3 +96,69 @@ td {
     font-weight: bold;
     color: #f8f6f5  !important;
 }
+#colonne2 {
+    padding-top: 20px
+}
+
+
+
+
+.wrapper {
+    display: flex;
+    width: 100%;
+}
+
+#sidebar {
+    width: 250px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    z-index: 999;
+    background: #d05c62;
+    color: #fff;
+    transition: all 0.3s;
+}
+#h3header {
+    font-weight: bold;
+    font-size: 35px;
+    text-align: center;
+    padding-top: 50px;
+}
+#imagedash {
+    width: 100px;
+    height: 100px;
+   margin-top: 50px;
+}
+#li1 {
+    text-align: center;
+}
+#li1:hover {
+    font-weight: bold;
+    color:  whitesmoke;
+    font-size: 18px;
+}
+#pdash {
+    color: #f3671f;
+    font-weight: bold;
+}
+#loginrow {
+    margin-top: 300px;
+    transition: transform .2s; 
+    border-style: groove;
+    border-width: 2px;
+    padding-top: 50px;
+    padding-right: 50px;
+    padding-left: 50px;
+    padding-bottom: 50px;
+    border-radius: 10px;
+}
+#loginrow:hover {
+    -ms-transform: scale(1.2); 
+    -webkit-transform: scale(1.2); 
+    transform: scale(1.2); 
+  }
+#loginp {
+    color: #f3671f;
+    font-size: 25px;
+}

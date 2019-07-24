@@ -32,19 +32,19 @@ class Atelier extends Component {
                                     <div className="card-body card-body-cascade">
 
                                         <center><h6 id="description"><span id="nomproduit">{user.titre}</span></h6></center>
-
-                                        <p className="card-text"><strong><span id="description"></span></strong>&nbsp;&nbsp; <div id="point">{user.description}</div> </p>
-                                        
-                                        <p className="card-text"><strong><span id="description">Date</span></strong>&nbsp;&nbsp; <div id="point">{user.date}</div> </p>
-                                        
-                                        <p className="card-text"><strong><span id="description">Horaire de debut</span></strong>&nbsp;&nbsp; <div id="point">{user.horaire}</div> </p>
-                                        
-                                        <p className="card-text"><strong><span id="description">Durée de l'atelier</span></strong>&nbsp;&nbsp; <div id="point">{user.duree}</div> </p>
-
-                                        <p className="card-text"><strong><span id="description">Nombre de place disponible</span></strong>&nbsp;&nbsp; <div id="point">{user.place_dispo}</div> </p>
-
-                                        <p className="card-text"><strong><span id="description">Nombre de place reserve</span></strong>&nbsp;&nbsp; <div id="point">{user.place_reserve}</div> </p>
-
+                                                <div className="row">
+                                                    <div className="col-md-6">
+                                                    
+                                                        <p className="card-text"><strong><span id="description">Description</span></strong>&nbsp;&nbsp; <div id="point">{user.description}</div> </p>
+                                                        <p className="card-text"><strong><span id="description">Date</span></strong>&nbsp;&nbsp; <div id="point">{user.date}</div> </p>
+                                                        <p className="card-text"><strong><span id="description">Nombre de place disponible</span></strong>&nbsp;&nbsp; <div id="point">{user.place_dispo}</div> </p>
+                                                    </div>
+                                                    <div className="col-md-6">
+                                                        <p className="card-text"><strong><span id="description">Horaire de debut</span></strong>&nbsp;&nbsp; <div id="point">{user.horaire}</div> </p>
+                                                        <p className="card-text"  id="colonne2"><strong><span id="description">Durée de l'atelier</span></strong>&nbsp;&nbsp; <div id="point">{user.duree}</div> </p>
+                                                        <p className="card-text"><strong><span id="description">Nombre de place reserve</span></strong>&nbsp;&nbsp; <div id="point">{user.place_reserve}</div> </p>
+                                                    </div>
+                                                </div>
                                         <span className="spanprix">
                                             <strong>Prix: {user.prix} €</strong>
                                         </span><br />

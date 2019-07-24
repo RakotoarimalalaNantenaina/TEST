@@ -67,11 +67,11 @@ class Login extends Component {
       <div className="container-fluid">
     <div className="row">
         <div className="col-md-4"></div>
-        <div className="col-md-4">
+        <div className="col-md-4" id="loginrow">
         <MDBRow>
           <MDBCol md="12">
             <form noValidate onSubmit={this.onSubmit}>
-              <p className="h5 text-center mb-4">Connexion</p>
+              <p className="h5 text-center mb-4" id="loginp">Connexion</p>
               <div className="grey-text">
                 <MDBInput
                   label="Votre adresse e-mail"

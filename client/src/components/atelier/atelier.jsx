@@ -1,6 +1,6 @@
 import React from 'react';
 import { MDBIcon,MDBCol,MDBInput,MDBCard, MDBCardBody} from "mdbreact";
-import Getatelier from './getatelier'
+
 
 class Atelier extends React.Component {
   constructor(props) {
@@ -65,7 +65,7 @@ class Atelier extends React.Component {
             <MDBCard width="50%">
               <MDBCardBody>
                 <form  onSubmit={this.handleUploadImage}>
-                  <p className="h4 text-center py-4">Ajouter de nouveau atelier </p>
+                  <p className="h4 text-center py-4" id="pdash">Ajout de nouveau atelier </p>
                   <div className="grey-text">
                     <MDBInput
                       label="Nom du l'atelier"
@@ -152,7 +152,6 @@ class Atelier extends React.Component {
 
           </div>
          </div> 
-         <Getatelier/>
       </div>
     );
   }
