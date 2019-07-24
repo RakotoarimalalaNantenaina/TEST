@@ -17,12 +17,15 @@ app.use('/public', express.static(__dirname + '/public'));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
-
+// ... other app.use middleware 
 app.use(express.static(path.join(__dirname, "client", "build")))
 
+// ...
+// Right before your app.listen(), add this:
 app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname, "client", "build", "index.html"));
+    res.sendFile(path.join(__dirname, "client", "build", "index.html"));
 });
+
 
 const users = require("./routes/api/users");
 
@@ -47,6 +50,7 @@ require("./config/passport")(passport);
 // Routes
 require('./routes/route')(app);
 app.use("/api/users", users);
+
 
 const port = process.env.PORT || 8080;
 
