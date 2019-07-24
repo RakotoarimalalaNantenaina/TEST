@@ -33,6 +33,7 @@ class Atelier extends React.Component {
     const data = new FormData();
     data.append('photo_produit', this.uploadInput.files[0]);
     data.append('titre',this.state.titre);
+    // data.append('id_utilisateur', localStorage.getItem(''))
     data.append('description',this.state.description);
     data.append('date',this.state.date);
     data.append('horaire',this.state.horaire);
@@ -71,67 +72,68 @@ class Atelier extends React.Component {
                       group
                       type="text"
                       validate
-                      error="wrong"
                       success="right" value={this.state.value}  onChange={this.onChange} name="titre"
+                      required
                     />
                     <MDBInput
                       label="Déscription"
                       group
                       type="text"
                       validate
-                      error="wrong"
                       success="right" value={this.state.value} onChange={this.onChange} name="description"
+                      required
                     />
                     <MDBInput
                       label="Date"
                       group
                       type="date"
                       validate
-                      error="wrong"
                       success="right" value={this.state.value} onChange={this.onChange} name="date"
+                      required
                     />
                      <MDBInput
-                      label="horaire"
+                      label="horaire de debut"
                       group
                       type="text"
                       validate
-                      error="wrong"
                       success="right" value={this.state.value} onChange={this.onChange}  name="horaire"
+                      required
                     />
                      <MDBInput
-                      label="Duree"
+                      label="Duree de l'atelier"
                       group
                       type="number"
                       validate
-                      error="wrong"
                       success="right" value={this.state.value} onChange={this.onChange}  name="duree"
+                      required
                     />
                      <MDBInput
                       label="Nombre de place disponible"
                       group
                       type="number"
                       validate
-                      error="wrong"
                       success="right" value={this.state.value} onChange={this.onChange}  name="place_dispo"
+                      required
                     />
                      <MDBInput
                       label="Nombre de place reservé"
                       group
                       type="number"
                       validate
-                      error="wrong"
                       success="right" value={this.state.value} onChange={this.onChange}  name="place_reserve"
+                      required
                     />
                     <MDBInput
-                      label="Prix"
+                      label="Prix de l'atelier (€)"
                       group
                       type="text"
                       validate
-                      error="wrong"
                       success="right" value={this.state.value} onChange={this.onChange}  name="prix"
+                      required
                     />
-                  <label>Images de l'atelier : </label><br/>
-                  <input ref={(ref) => { this.uploadInput = ref; }} type="file" name="photo_produit"/>
+                    <label className="btn btn-default btn-file" id="fichier">
+                     Image de l'atelier<input ref={(ref) => { this.uploadInput = ref; }} type="file" name="photo_produit"   required/>
+                  </label>
                   </div>
                   <div className="text-center">
                   <div className="text-center mt-4">

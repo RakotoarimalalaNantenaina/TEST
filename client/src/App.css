@@ -4,6 +4,8 @@
 #navbar {
     background-color: #d05c62  !important;
     margin-bottom: 5px !important;
+    width: 98%;
+    margin-left: 1%;
 }
 .nav-header {
     font-size: 20px;
@@ -49,6 +51,7 @@ td {
 }
 #ajouter_boutton {
     height: 50px;
+    line-height: 50%;
 }
 #logoimage {
     width: 50px;
@@ -57,4 +60,39 @@ td {
 #inscrire-btn {
     height: 50px;
     background-color: #f3671f !important; 
+}
+#bouton-connecter {
+    height: 50px;
+    background-color: #f3671f !important;
+}
+.btn-file {
+    position: relative;
+    overflow: hidden;
+}
+.btn-file input[type=file] {
+    position: absolute;
+    top: 0;
+    right: 0;
+    min-width: 100%;
+    min-height: 100%;
+    font-size: 100px;
+    text-align: right;
+    filter: alpha(opacity=0);
+    opacity: 0;
+    outline: none;
+    cursor: inherit;
+    display: block;
+}
+#fichier {
+    background-color: #f3671f !important;
+    height: 40px;
+    font-weight: bold;
+}
+#boutton-accueil {
+    height: 50px;
+    line-height: 25px;
+}
+#h2accueil{
+    font-weight: bold;
+    color: #f8f6f5  !important;
 }

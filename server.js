@@ -4,6 +4,7 @@ const bodyParser = require("body-parser");
 const passport = require("passport");
 const app = express();
 const cors = require('cors')
+const path = require("path")
 const methodOverride = require('method-override')
 const fileUpload = require('express-fileupload');
 app.use(methodOverride('X-HTTP-Method')) 
@@ -16,6 +17,12 @@ app.use('/public', express.static(__dirname + '/public'));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
+
+app.use(express.static(path.join(__dirname, "client", "build")))
+
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "client", "build", "index.html"));
+});
 
 const users = require("./routes/api/users");
 

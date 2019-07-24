@@ -29,9 +29,20 @@ router.post("/register", (req, res) => {
 
   User.findOne({ email: req.body.email }).then(user => {
     if (user) {
-      return res.status(400).json({ email: "Email already exists" });
+      return res.status(400).json({ email: "Email existe déjà" });
     } else {
+
+      User.find()
+    .then(userone => {
+        let id;
+        if(userone.length == 0){
+            id = 0
+        }else {
+            id = parseInt(userone[userone.length - 1]._id) + 1
+        }
+
       const newUser = new User({
+        _id: id,
         name: req.body.name,
         email: req.body.email,
         password: req.body.password
@@ -48,6 +59,7 @@ router.post("/register", (req, res) => {
             .catch(err => console.log(err));
         });
       });
+    })
     }
   });
 });
@@ -72,7 +84,7 @@ router.post("/login", (req, res) => {
   User.findOne({ email }).then(user => {
     // Check if user exists
     if (!user) {
-      return res.status(404).json({ emailnotfound: "Email not found" });
+      return res.status(404).json({ emailnotfound: "Email non trouvé" });
     }
 
     // Check password
@@ -95,14 +107,17 @@ router.post("/login", (req, res) => {
           (err, token) => {
             res.json({
               success: true,
-              token: "Bearer " + token
+              token: "Authentification avec succes " + token
             });
+            console.log('id utilisateur back :' , user.id)
           }
         );
+        
+            
       } else {
         return res
           .status(400)
-          .json({ passwordincorrect: "Password incorrect" });
+          .json({ passwordincorrect: "Mot de passe incorrect" });
       }
     });
   });
