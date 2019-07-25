@@ -2,9 +2,8 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { logoutUser } from "../../actions/authActions";
-import Atelier from './../atelier/atelier'
-import Tableau from './../atelier/getatelier'
-import { Route, Switch,Link } from "react-router-dom";
+import Atelier from './../atelier/atelier';
+import Getatelier from './../atelier/getatelier'
 import { MDBNavbar, MDBNavbarBrand, MDBNavbarNav, MDBNavItem, MDBNavLink, MDBNavbarToggler, MDBCollapse } from "mdbreact";
 
 
@@ -18,7 +17,9 @@ class Dashboard extends Component {
     
   }
 
-
+  get = () =>{
+      return   document.getElementById('listecomponent').style.display = 'block'
+  }
   //popops login fonction 
   toggleCollapse = collapseID => () =>
     this.setState(prevState => ({
@@ -42,14 +43,8 @@ class Dashboard extends Component {
 
     return (
       <div className="container-fluid">
-
-        <Switch>
-            <Route path='/dashboard/ajout' component={Atelier} />
-            {/* <Route path='/dashboard/article' component={Article} />
-            <Route path='/dashboard/monProfil' component={MonProfil} /> */}
-          </Switch>
           
-          <MDBNavbar color="red" dark expand="md" style={{ marginTop: "1px" }} id="navbar">
+          <MDBNavbar color="red" dark expand="md" style={{ marginTop: "1px" }} id="navbar" scrolling>
           <MDBNavbarBrand>
             <img src="logo.png" alt="Logo" id="logoimage"/>
           </MDBNavbarBrand>
@@ -71,13 +66,17 @@ class Dashboard extends Component {
               <nav id="sidebar">
               <center>
                   <div className="sidebar-header">
-                  
                     <img src="logo.png" alt="logo" id="imagedash"/>
                         <h3 id="h3header">{user.name.split(" ")[0]}</h3>
-                        <a id="li1" href="#">Ajouter nouveau atelier</a><br/>
-                        <a id="li1" onClick={()=>{
-                          return <Atelier/>
-                        }} href="#">Voir tous les ateliers</a>
+                        <button id="li1" className="btn btn-primary"  onClick={()=>{
+                          document.getElementById('ajoutercomponent').style.display = 'block'
+                          document.getElementById('listecomponent').style.display = 'none'
+
+                        }} href="#">Ajouter nouveau atelier</button><br/>
+                        <button id="li1"  className="btn btn-primary" onClick={()=>{
+                          document.getElementById('ajoutercomponent').style.display = 'none'
+                          this.get()
+                        }} href="#">listes de vos ateliers</button>
                   </div>
                   </center>
               </nav>
@@ -85,11 +84,22 @@ class Dashboard extends Component {
             </div>
 
             <div>
-            <Atelier/>
-            <Tableau/>
-
          
-</div>
+        </div>
+    <center>
+        <Atelier/>
+    </center>
+
+        <div className="row">
+              <div className="col-md-2">
+
+              </div>
+              <div className="col-md-10">
+              
+                <Getatelier/>
+              </div>
+        </div>
+        
 
       </div>
     );

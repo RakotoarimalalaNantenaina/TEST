@@ -34,14 +34,9 @@ class SideNavPage extends Component {
           <MDBNavbarToggler onClick={this.toggleCollapse("navbarCollapse3")} />
           <MDBCollapse id="navbarCollapse3" isOpen={this.state.collapseID} navbar>
             <MDBNavbarNav left>
-              <MDBNavItem >
-                <MDBNavLink to="" className="nav-header" onClick={this.toggle(5)}>A propos</MDBNavLink>
-              </MDBNavItem>
+            
               <MDBNavItem>
-                <MDBNavLink to="" className="nav-header">Produits</MDBNavLink>
-              </MDBNavItem>
-              <MDBNavItem>
-                <MDBNavLink to="" className="nav-header">Contacts</MDBNavLink>
+                <MDBNavLink to="" className="nav-header">AT-C</MDBNavLink>
               </MDBNavItem>
 
             </MDBNavbarNav>

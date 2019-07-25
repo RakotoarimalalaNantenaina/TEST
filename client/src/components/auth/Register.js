@@ -62,7 +62,7 @@ class Register extends Component {
         <MDBRow>
           <MDBCol md="12">
             <form noValidate onSubmit={this.onSubmit}>
-              <p className="h5 text-center mb-4" id="loginp">Connexion</p>
+              <p className="h5 text-center mb-4" id="loginp">S'inscrire</p>
               <div className="grey-text">
                 <MDBInput
                   label="Votre nom"
@@ -70,13 +70,12 @@ class Register extends Component {
                   group
                   onChange={this.onChange}
                   value={this.state.name}
-                  error={errors.name}
                   id="name"
                   type="text"
                   className={classnames("", {
                     invalid: errors.name
                   })}
-
+                  required
                 />
 
                 <MDBInput
@@ -88,10 +87,11 @@ class Register extends Component {
                   id="email"
                   onChange={this.onChange}
                   value={this.state.email}
-                  error={errors.email}
+                
                   className={classnames("", {
                     invalid: errors.email
                   })}
+                  required
                 />
 
                 
@@ -102,31 +102,34 @@ class Register extends Component {
                   type="password"
                   onChange={this.onChange}
                   value={this.state.password}
-                  error={errors.password}
+                 
                   id="password"
                   className={classnames("", {
                     invalid: errors.password
                   })}
+                  required
                 />
                  <MDBInput
-                  label="Confirmer Votre mot de passe"
+                  label="Confirmer votre mot de passe"
                   icon="lock"
                   group
                   type="password"
                   onChange={this.onChange}
                   value={this.state.password2}
-                  error={errors.password2}
+                  
                   id="password2"
                   className={classnames("", {
                     invalid: errors.password2
                   })}
+                  required
                 />
                  
               </div>
               <div className="text-center">
                 <MDBBtn type="submit" id="bouton-connecter">S'inscrire</MDBBtn>
-              </div>
+              </div><br/>
             </form>
+                  <p>J'ai deja un compte sur l' AT-C &nbsp; <Link to="/login" id="linkseconnecter"> Se connecter</Link></p> 
           </MDBCol>
         </MDBRow>
         </div>

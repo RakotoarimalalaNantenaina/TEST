@@ -11,6 +11,9 @@
     font-size: 20px;
     font-weight: bold;
 }
+#header {
+    margin-top: 67px;
+}
 #boutton-inscrire {
     background-color: #f3671f !important;
 }
@@ -131,12 +134,7 @@ td {
    margin-top: 50px;
 }
 #li1 {
-    text-align: center;
-}
-#li1:hover {
-    font-weight: bold;
-    color:  whitesmoke;
-    font-size: 18px;
+   background-color: #f3671f !important
 }
 #pdash {
     color: #f3671f;
@@ -166,4 +164,30 @@ td {
     background-color: #f3671f !important;
     height: 50px;
     line-height: 25px;
+}
+#okajout {
+    background-color: #f3671f !important;
+}
+
+@media only screen and (max-width: 600px) {
+   .wrapper {
+       display: none
+   }
+   #table {
+       display:
+       inline-block;
+   }
+   #ajoutercomponent {
+    display: initial;
+}
+  }
+
+#ajoutercomponent {
+    display: none;
+}
+#listecomponent {
+    display: none;
+}
+#linkseconnecter {
+    color: rgb(221, 101, 101);
 }
