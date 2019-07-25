@@ -10,11 +10,8 @@ import { MDBNavbar, MDBNavbarBrand, MDBNavbarNav, MDBNavItem, MDBNavLink, MDBNav
 import '@trendmicro/react-sidenav/dist/react-sidenav.css';
 
 class Dashboard extends Component {
-
-
   state = {
-    modal5: false,
-    
+    modal5: false, 
   }
 
   get = () =>{
