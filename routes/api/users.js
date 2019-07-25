@@ -106,6 +106,7 @@ router.post("/login", (req, res) => {
           },
           (err, token) => {
             res.json({
+              id: user.id,
               success: true,
               token: "Authentification avec succes " + token
             });

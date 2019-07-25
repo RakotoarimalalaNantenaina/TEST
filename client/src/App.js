@@ -12,7 +12,7 @@ import Register from "./components/auth/Register";
 import Login from "./components/auth/Login";
 import PrivateRoute from "./components/private-route/PrivateRoute";
 import Dashboard from "./components/dashboard/Dashboard";
-import Ajout from "./components/atelier/atelier";
+import Modifier from "./components/atelier/modifatelier";
 
 import "./App.css";
 
@@ -44,6 +44,7 @@ class App extends Component {
             <Route exact path="/" component={Accueil} />
             <Route exact path="/register" component={Register} />
             <Route exact path="/login" component={Login} />
+            <Route path="/dashboard/atelier/:id" component={Modifier} />
             <Switch>
               <PrivateRoute exact path="/dashboard" component={Dashboard} />
             </Switch>

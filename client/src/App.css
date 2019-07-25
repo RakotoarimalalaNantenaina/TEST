@@ -143,7 +143,7 @@ td {
     font-weight: bold;
 }
 #loginrow {
-    margin-top: 300px;
+    margin-top: 200px;
     transition: transform .2s; 
     border-style: groove;
     border-width: 2px;
@@ -154,11 +154,16 @@ td {
     border-radius: 10px;
 }
 #loginrow:hover {
-    -ms-transform: scale(1.2); 
-    -webkit-transform: scale(1.2); 
-    transform: scale(1.2); 
+    -ms-transform: scale(1.1); 
+    -webkit-transform: scale(1.1); 
+    transform: scale(1.1); 
   }
 #loginp {
     color: #f3671f;
     font-size: 25px;
+}
+#btn-modifier {
+    background-color: #f3671f !important;
+    height: 50px;
+    line-height: 25px;
 }

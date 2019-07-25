@@ -34,6 +34,7 @@ exports.create = (req, res) => {
         
     const produit = new Produit({    
         _id: id,
+        id_user: req.body.id_user,
         titre: req.body.titre , 
         description: req.body.description,
         date: req.body.date,
@@ -99,3 +100,55 @@ exports.delete_atelier =(req, res) =>{
     })
     )
 }
+
+exports.modifier = (req, res) => {
+    
+    if(!req.body.titre) {
+        return res.status(400).send({
+            message: "Atelier content can not be empty"
+        });
+    }
+    console.log('parametre '+req.params.profilId)
+
+    let imageFile = req.files.photo_produit;
+     
+        let nomImage = req.params.profilId
+        res.setHeader('Content-Type', 'text/plain');
+
+        imageFile.mv(`${__dirname}/public/${nomImage }.jpg`, function(err) {
+          if (err) {
+            return res.status(500).send(err);
+          }
+        });
+    
+    
+    Produit.findByIdAndUpdate(req.params.profilId, {
+        titre: req.body.titre , 
+        description: req.body.description,
+        date: req.body.date,
+        horaire: req.body.horaire,
+        duree:  req.body.duree,
+        place_dispo: req.body.place_dispo,
+        place_reserve: req.body.place_reserve,
+        prix: req.body.prix,
+        photo_produit:'' + nomImage +'.jpg'
+        
+    }, {new: true})
+    .then(user => {
+        if(!user) {
+            return res.status(404).send({
+                message: "eleve not found with id " + req.params.profilId
+            });
+        }
+        res.send(user);
+    }).catch(err => {
+        if(err.kind === 'ObjectId') {
+            return res.status(404).send({
+                message: "eleve not found with id " + req.params.profilId
+            });                
+        }
+        return res.status(500).send({
+            message: "Something wrong updating note with id " + req.params.profilId
+        });
+    });
+};

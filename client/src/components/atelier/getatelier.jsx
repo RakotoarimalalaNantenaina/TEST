@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-
+import { Link } from 'react-router-dom'
 
 export default class Tableau extends Component {
 
@@ -10,11 +10,16 @@ export default class Tableau extends Component {
         
     }
     componentDidMount() {
-       
+       var test = []
         axios.get('http://localhost:8080/atelier')
             .then(response => {
+                for(let i=0; i<response.data.length; i++){
+                    if(response.data[i].id_user==localStorage.getItem('id_user')){
+                        test.push(response.data[i])
+                    }
+                }
                 console.log('produit tableau :', response.data)
-                this.setState({ profil: response.data });
+                this.setState({ profil: test });
             })
             .catch(function (error) {
                 console.log(error);
@@ -55,7 +60,8 @@ export default class Tableau extends Component {
                                     <td>{obj.place_reserve}</td>
                                     <td>{obj.prix}  €</td>
                                     <td>
-                                    <button type="submit" className="btn btn-success" id="inscrire-btn">Modifier</button></td>
+                                    <Link className="btn btn-primary" to={'/dashboard/atelier/'+obj._id} id="btn-modifier">Modifier</Link>
+                                    </td>
                                     
                                 </tr>
                             })) : ('Aucun atelier a ajouter')
