@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom'
 
+
 export default class Tableau extends Component {
 
     constructor(props) {
@@ -29,8 +30,8 @@ export default class Tableau extends Component {
 
     liste() {
         return <div>
-            <div>
-                    <h4 id="h4tableau">Votre(s)  atelier(s)  recent(s)</h4>
+            <div id="listecomponent">
+                    <h4 id="h4tableau">Ateliers  recents</h4>
                 <table className="table table-striped table-bordered" id="table">
                     <thead>
                         <tr>
@@ -60,7 +61,9 @@ export default class Tableau extends Component {
                                     <td>{obj.place_reserve}</td>
                                     <td>{obj.prix}  €</td>
                                     <td>
-                                    <Link className="btn btn-primary" to={'/dashboard/atelier/'+obj._id} id="btn-modifier">Modifier</Link>
+                                    <Link className="btn btn-primary" to={'/dashboard/atelier/'+obj._id}
+ 
+                                    id="btn-modifier">Modifier</Link>
                                     </td>
                                     
                                 </tr>

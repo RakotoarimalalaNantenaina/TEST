@@ -1,4 +1,5 @@
 const Produit = require('../models/model.atelier');
+const Particulier = require('../models/model.particulier');
 const fs = require('fs');
 
 //Create new profil
@@ -152,3 +153,52 @@ exports.modifier = (req, res) => {
         });
     });
 };
+exports.particulier = (req, res) => {
+    if(!req.body.nom) {
+        return res.status(400).send({
+            message: "particulier content can not be empty"
+            
+        });
+    }
+
+    Particulier.find({idpart: idpart}
+        .then(user => {
+        
+            let id;
+            if(user.length == 0){
+                id = 0
+            }else {
+                id = parseInt(user[user.length - 1]._id) + 1
+            }
+            
+          
+        const produit = new Produit({    
+            _id: id,
+            nom: req.body.nom, 
+            prenom: req.body.prenom,
+            email: req.body.email,
+            numtel: req.body.numtel,
+            idpart:  req.body.idpart
+        });
+    
+        produit.save()
+        .then(() => {
+            Produit.find()
+            .then(data=>{
+                res.send(data);
+                console.log('Particulier inscrit ',data);
+            })
+        }).catch(err => {
+            res.status(500).send({
+                message: err.message || "Something wrong while creating the profil."
+                
+            });
+        });
+    })
+    )}   
+     
+
+
+  
+    
+   

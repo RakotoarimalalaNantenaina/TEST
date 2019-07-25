@@ -1,5 +1,7 @@
 import React from 'react';
 import { MDBIcon,MDBCol,MDBInput,MDBCard, MDBCardBody} from "mdbreact";
+import { confirmAlert } from 'react-confirm-alert'; 
+import 'react-confirm-alert/src/react-confirm-alert.css'; 
 
 
 class Atelier extends React.Component {
@@ -57,8 +59,11 @@ class Atelier extends React.Component {
   render() {
     return (
         <div className="container-fluid"> 
-         <div className="row">
+         <div className="row" id="ajoutercomponent">
           <div className="col-md-4">
+          </div>
+          <div className="col-md-4">
+         
           </div>
           <div className="col-md-4">
           <MDBCol md="12">
@@ -137,7 +142,18 @@ class Atelier extends React.Component {
                   </div>
                   <div className="text-center">
                   <div className="text-center mt-4">
-                <button className="btn btn-outline-warning" type="submit" id="ajouter_boutton">
+                <button className="btn btn-outline-warning" onClick={()=>{
+                  confirmAlert({
+                    customUI: () => {
+                      return (
+                        <div className='custom-ui'>
+                          <h1>Enregistrement l'ajout de l'atelier</h1>
+                          <center></center><a href="!" id="okajout" className="btn btn-primary">OK</a>
+                        </div>
+                      );
+                    }
+                  });
+                }} type="submit" id="ajouter_boutton">
                   Ajouter
                   <MDBIcon icon="paper-plane" className="ml-2" />
                 </button>
@@ -147,9 +163,6 @@ class Atelier extends React.Component {
               </MDBCardBody>
             </MDBCard>
           </MDBCol>
-          </div>
-          <div className="col-md-4">
-
           </div>
          </div> 
       </div>
