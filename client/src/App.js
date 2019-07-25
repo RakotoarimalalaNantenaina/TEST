@@ -48,6 +48,13 @@ class App extends Component {
             <Switch>
               <PrivateRoute exact path="/dashboard" component={Dashboard} />
             </Switch>
+
+            <footer className="page-footer" id="footer">
+              <center>
+                <span>© 2019 Copyright   <span id="spanfooter">RAKOTOARIMALALA Andrianavalona Nantenaina</span></span>
+              </center>
+            </footer>
+            
           </div>
         </Router>
       </Provider>

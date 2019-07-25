@@ -189,5 +189,17 @@ td {
     display: none;
 }
 #linkseconnecter {
-    color: rgb(221, 101, 101);
+    color: #d05c62;
+}
+#footer {
+    height: 70px;
+    line-height: 35px;
+    background-color: #d05c62;
+   
+}
+#spanfooter {
+    font-weight: bold
+}
+footer {
+    flex-shrink: none;
 }

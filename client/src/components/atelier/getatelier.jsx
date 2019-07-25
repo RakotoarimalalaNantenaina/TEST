@@ -32,7 +32,7 @@ export default class Tableau extends Component {
         return <div>
             <div id="listecomponent">
                     <h4 id="h4tableau">Ateliers  recents</h4>
-                <table className="table table-striped table-bordered" id="table">
+                <table className="table table-striped table-bordered table-hover" id="table">
                     <thead>
                         <tr>
                             <th className="thtab">Images</th>
