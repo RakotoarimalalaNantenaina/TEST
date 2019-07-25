@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { logoutUser } from "../../actions/authActions";
 import Atelier from './../atelier/atelier'
+import Tableau from './../atelier/getatelier'
 import { Route, Switch,Link } from "react-router-dom";
 import { MDBNavbar, MDBNavbarBrand, MDBNavbarNav, MDBNavItem, MDBNavLink, MDBNavbarToggler, MDBCollapse } from "mdbreact";
 
@@ -85,6 +86,7 @@ class Dashboard extends Component {
 
             <div>
             <Atelier/>
+            <Tableau/>
 
          
 </div>

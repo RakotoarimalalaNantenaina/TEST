@@ -33,7 +33,7 @@ class Atelier extends React.Component {
     const data = new FormData();
     data.append('photo_produit', this.uploadInput.files[0]);
     data.append('titre',this.state.titre);
-    // data.append('id_utilisateur', localStorage.getItem(''))
+    data.append('id_user', localStorage.getItem('id_user'))
     data.append('description',this.state.description);
     data.append('date',this.state.date);
     data.append('horaire',this.state.horaire);
@@ -94,7 +94,7 @@ class Atelier extends React.Component {
                      <MDBInput
                       label="horaire de debut"
                       group
-                      type="text"
+                      type="time"
                       validate
                       success="right" value={this.state.value} onChange={this.onChange}  name="horaire"
                       required

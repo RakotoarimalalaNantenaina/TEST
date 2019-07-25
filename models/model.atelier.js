@@ -4,15 +4,16 @@ const Schema = mongoose.Schema;
 // Create Schema
 const UserSchema = new Schema({
   _id: {type:Number},
-  titre: { type: String},
-  description: { type: String},
-  date: { type: String},
-  horaire: {type: String},
-  duree: {type: Number},
-  place_dispo: {type: Number},
-  place_reserve: {type: Number},
-  prix: { type: Number},
-  photo_produit:String,
+  titre: { type: String, required: true},
+  description: { type: String, required: true},
+  date: { type: String ,   required: true},
+  id_user: {type: Number,   required: true},
+  horaire: {type: String,   required: true},
+  duree: {type: Number,   required: true},
+  place_dispo: {type: Number ,   required: true},
+  place_reserve: {type: Number ,   required: true},
+  prix: { type: Number ,   required: true},
+  photo_produit: { type: String ,   required: true},
 
 });
 
