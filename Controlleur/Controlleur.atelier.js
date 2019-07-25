@@ -154,48 +154,48 @@ exports.modifier = (req, res) => {
     });
 };
 exports.particulier = (req, res) => {
-    if(!req.body.nom) {
-        return res.status(400).send({
-            message: "particulier content can not be empty"
-            
-        });
-    }
-
-    Particulier.find({idpart: idpart}
-        .then(user => {
+    Particulier.find().then(use=>{
+        // const { errors, isValid } = validateRegisterInput(req.body);
+        var id;
+        if(use.length==0){
+            id=0
+        }
+        else{
+            id=use[use.length-1]._id+1
+        }
         
-            let id;
-            if(user.length == 0){
-                id = 0
-            }else {
-                id = parseInt(user[user.length - 1]._id) + 1
-            }
-            
-          
-        const produit = new Produit({    
-            _id: id,
-            nom: req.body.nom, 
-            prenom: req.body.prenom,
-            email: req.body.email,
-            numtel: req.body.numtel,
-            idpart:  req.body.idpart
-        });
-    
-        produit.save()
-        .then(() => {
-            Produit.find()
-            .then(data=>{
-                res.send(data);
-                console.log('Particulier inscrit ',data);
-            })
-        }).catch(err => {
-            res.status(500).send({
-                message: err.message || "Something wrong while creating the profil."
-                
-            });
-        });
-    })
-    )}   
+
+        Produit.findById(req.params._id).then(use=>{
+                const particulier = new Particulier({
+                    _id:id,
+                    nom: req.body.nom,
+                    prenom: req.body.prenom,
+                    email: req.body.email,
+                    numtel:req.body.numtel,
+
+                });
+            Produit.findByIdAndUpdate(use._id, { _id:use.id,
+                    id2:use.id2,
+                    titre: use.titre,
+                    description: use.description,
+                    date: use.date,
+                    horaire: use.horaire,
+                    duree:use.duree,
+                    place_reserve: use.place_reserve+1,
+                    place_dispo: use.place_dispo-1,
+                    prix:use.prix,
+                    image:use.image,
+
+                }).then(upd=>console.log(upd)
+                )
+                                particulier
+                                    .save()
+                                    .then(user => {
+                                        res.json(user)
+         }); 
+    });
+    }); 
+    }
      
 
 

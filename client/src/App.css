@@ -104,8 +104,6 @@ td {
 }
 
 
-
-
 .wrapper {
     display: flex;
     width: 100%;
@@ -201,5 +199,12 @@ td {
     font-weight: bold
 }
 footer {
-    flex-shrink: none;
+    height: 100px;
+    width: 100%;
+}
+#footerdash {
+    position: fixed;
+    height: 70px;
+    line-height: 35px;
+    width: 100%;
 }

@@ -1,12 +1,29 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import { confirmAlert } from 'react-confirm-alert'; 
+import 'react-confirm-alert/src/react-confirm-alert.css'; 
 
 class Atelier extends Component {
+
     constructor(props) {
         super(props);
-        this.state = { profil: [] };
+    
+        this.state = {
+          nom: '',
+          prenom:'',
+          email: '',
+          numtel: '',
+          profil: [] 
+        };
+    
+        this.onChange = this.onChange.bind(this)
+      }
+      onChange(event) {
+        this.setState({
+            [event.target.name]: event.target.value
+        })
     }
-      
+
     componentDidMount() {
         axios.get('http://localhost:8080/atelier')
             .then(response => {
@@ -16,6 +33,7 @@ class Atelier extends Component {
                 console.log(error);
             })
     }
+   
 
     Produit() {
         return <div className="container-fluid">
@@ -51,7 +69,38 @@ class Atelier extends Component {
 
                                         <span class="float-right">
 
-                                           <button className="btn btn-primary" id="inscrire-btn">S'inscrire</button>
+                                           <button className="btn btn-primary"
+                                           onClick={()=>{
+                                            confirmAlert({
+                                                customUI: ({ onClose }) => {
+                                                  return (
+                                                    <div>
+                                                                <input name="nom" onChange={this.onChange} value={this.state.value} placeholder="Nom" /><br></br>
+                                                                <input name="prenom" placeholder="Prenom" onChange={this.onChange} value={this.state.value} /><br></br>
+                                                                <input name="numtel" placeholder="Numero téléphone" onChange={this.onChange} value={this.state.value} /><br></br>
+                                                                <input name="email" placeholder="Email" onChange={this.onChange} value={this.state.value} /><br></br>
+                                                                <button
+                                                                onClick={()=>{
+                                                                    axios.post("http://localhost:8080/particulier/" + user._id, {
+                                                                        nom: this.state.nom,
+                                                                        prenom: this.state.prenom,
+                                                                        numtel: this.state.numtel,
+                                                                        email: this.state.email
+                                                                    }).then(res=>{
+                                                                        axios.get("http://localhost:8080/atelier").then(res=>{
+
+                                                                            this.setState({ profil: res.data })
+                                                                        })
+                                                                    })
+                                                                }}
+                                                >Confirmer</button>
+                                                           <button onClick={onClose}>Annuler</button>
+                                                    </div>
+                                                  );
+                                                }
+                                              });
+                                           }}
+                                           id="inscrire-btn">S'inscrire</button>
 
                                         </span>
 

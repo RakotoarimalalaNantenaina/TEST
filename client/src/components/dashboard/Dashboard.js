@@ -96,8 +96,11 @@ class Dashboard extends Component {
                 <Getatelier/>
               </div>
         </div>
-        
-
+        <footer className="page-footer" id="footerdash">
+              <center>
+                <span>© 2019 Copyright   <span id="spanfooter">RAKOTOARIMALALA Andrianavalona Nantenaina</span></span>
+              </center>
+        </footer>
       </div>
     );
   }
