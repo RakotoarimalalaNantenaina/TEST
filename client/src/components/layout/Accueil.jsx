@@ -14,7 +14,9 @@ class Accueil extends Component {
           <div className="text-white text-center rgba-stylish-strong py-5 px-4">
             <div className="py-5">
               <h2 id="h2accueil">ATELIER DE CUISINE</h2>
-              <p className="mb-4 pb-2 px-md-5 mx-md-5">Ici vous voyez toutes les atéliers de cuisine. <span id="spanheader">Comment avoir une formation de bonne cuisinier ??</span></p>
+              <p className="mb-4 pb-2 px-md-5 mx-md-5">Ici vous voyez toutes les atéliers de cuisine. <span id="spanheader">Comment avoir une formation de bonne cuisinier ??</span> 
+              <br/><br/>Des personnes qui veulent apprendre à  cuisiner afin de manger correctement.
+              </p>
               <a className="btn peach-gradient" href="#!" id="boutton-accueil"><i class="fas fa-clone left"></i>Voir tous les ateliers</a>
             </div>
           </div>
