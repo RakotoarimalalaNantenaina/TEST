@@ -4,6 +4,7 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { loginUser } from "../../actions/authActions";
 import classnames from "classnames";
+import { Link } from "react-router-dom";
 
 class Login extends Component {
 
@@ -114,6 +115,7 @@ class Login extends Component {
                 <MDBBtn type="submit" id="bouton-connecter">Se Connecter</MDBBtn>
               </div>
             </form>
+            Vers &nbsp; <Link to="/">Accueil</Link>
           </MDBCol>
         </MDBRow>
         </div>
