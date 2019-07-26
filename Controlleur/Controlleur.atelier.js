@@ -76,15 +76,7 @@ exports.findAll = (req, res) => {
     });
 };
 
-exports.lireImage =(req, res) =>{
-    try {
-        let picture = fs.readFileSync('./Controlleur/public/'+req.params.image)
-        res.write(picture)
-        res.end()
-    } catch (e) {
-        console.log("ts lasa le sary o", e.stack);
-    }
-}
+
 
 exports.delete_atelier =(req, res) =>{
     Produit.findById(req.params._id)
@@ -155,7 +147,6 @@ exports.modifier = (req, res) => {
 };
 exports.particulier = (req, res) => {
     Particulier.find().then(use=>{
-        // const { errors, isValid } = validateRegisterInput(req.body);
         var id;
         if(use.length==0){
             id=0
@@ -191,14 +182,84 @@ exports.particulier = (req, res) => {
                                 particulier
                                     .save()
                                     .then(user => {
-                                        res.json(user)
+                res.json(user)
          }); 
     });
     }); 
     }
-     
+
+exports.masqueratelier  = (req,res)=>{
+    Produit.findOneAndUpdate({ _id: req.params._id }, {
+        valid: false
+
+    }, { new: true }).then(upd => res.send(upd)
+    )
+}
 
 
-  
-    
-   
+exports.getaetelier = (req,res)=>{
+    Produit.findOneAndUpdate({ _id: req.params._id }, {
+        valid: true
+
+    }, { new: true }).then(upd => res.send(upd)
+    )
+}
+
+
+exports.modifatelier = (req,res)=>{
+    console.log('ity ny requete'+req.body.nom) 
+
+    let imageFile = req.files.photo_produit; 
+console.log('inona ny ato o!'+imageFile) 
+let nomImage = req.params._id
+res.setHeader('Content-Type', 'text/plain');
+imageFile.mv(`${__dirname}/public/${nomImage }.jpg`, function(err) {
+    if (err) {
+      return res.status(500).send(err);
+    }
+  });
+console.log(req.params._id);
+
+console.log('tonga eto v nw') 
+// Find and update eleve with the request body 
+Produit.findOneAndUpdate({_id: req.params._id}, { 
+    titre: req.body.titre, 
+    prix: req.body.prix, 
+    description: req.body.description, 
+    horaire: req.body.horaire,
+    date: req.body.date,
+    photo_produit: ''+nomImage + '.jpg', 
+    duree: req.body.duree, 
+    place_dispo: req.body.place_dispo, 
+    place_reserve: req.body.place_reserve,
+}, { new: true }).then(user => { 
+if (!user) { 
+    return res.status(404).send(
+        { 
+            message: "eleve not found with id " + req.params._id 
+        }); 
+    } res.send(user); })
+    .catch(err => {
+if (err.kind === 'ObjectId') {
+    return res.status(404).send(
+        { 
+            message: "eleve not found with id " + req.params._id 
+        });
+} 
+return res.status(500).send(
+    { 
+        message: "Something wrong updating note with id " + req.params._id 
+    });
+}); 
+}
+
+
+exports.lireImage =(req, res) =>{
+    try {
+        let picture = fs.readFileSync('./Controlleur/public/'+req.params.image)
+        res.write(picture)
+        res.end()
+    } catch (e) {
+        console.log("ts lasa le sary o", e.stack);
+    }
+}

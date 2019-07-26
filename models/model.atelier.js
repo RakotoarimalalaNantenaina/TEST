@@ -14,6 +14,7 @@ const UserSchema = new Schema({
   place_reserve: {type: Number ,   required: true},
   prix: { type: Number ,   required: true},
   photo_produit: { type: String ,   required: true},
+  valid: {type: Boolean}
 
 });
 

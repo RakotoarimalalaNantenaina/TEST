@@ -64,7 +64,52 @@ export default class Tableau extends Component {
                                     <Link className="btn btn-primary" to={'/dashboard/atelier/'+obj._id}
  
                                     id="btn-modifier">Modifier</Link>
-                                    </td>
+                                 
+                                   
+                                  
+                                    {obj.valid == true ?(<button id="visual" onClick={(e)=>{
+                                        e.preventDefault()
+                                        axios.get("http://localhost:8080/masqueratelier/"+obj._id).then(res=>{
+                                            axios.get('http://localhost:8080/atelier')
+                                            .then(response => {
+                                                var test = []
+                                                for(let i=0; i<response.data.length; i++){
+                                                    if(response.data[i].id_user==localStorage.getItem('id_user')){
+                                                        test.push(response.data[i])
+                                                    }
+                                                }
+                                                console.log('produit tableau :', response.data)
+                                                this.setState({ profil: test });
+                                            })
+                                            .catch(function (error) {
+                                                console.log(error);
+                                            })
+                                        console.log(res.data)
+                                    })
+                                    }}><i class="glyphicon glyphicon-minus-sign"></i>Desactiver</button>):(<button id="visual" onClick={(e)=>{
+                                        e.preventDefault()  
+                                        axios.get("http://localhost:8080/afficheatelier/"+obj._id).then(res=>{
+                                            axios.get('http://localhost:8080/atelier')
+            .then(response => {
+                var test = []
+                for(let i=0; i<response.data.length; i++){
+                    if(response.data[i].id_user==localStorage.getItem('id_user')){
+                        test.push(response.data[i])
+                    }
+                }
+                console.log('produit tableau :', response.data)
+                this.setState({ profil: test });
+            })
+            .catch(function (error) {
+                console.log(error);
+            })
+                                    }
+                                )
+
+    }}><i class="glyphicon glyphicon-ok"></i>Activer</button>)}
+
+                                   
+</td>
                                     
                                 </tr>
                             })) : ('Aucun atelier a ajouter')
