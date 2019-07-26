@@ -238,3 +238,13 @@ footer {
   body {
     font-family: 'Open Sans';
   }
+  #bottonactivez {
+      height: 40px;
+      line-height: 50%;
+      border-radius: 15px;
+  }
+  #bottondesactivez {
+    height: 40px;
+    line-height: 50%;
+    border-radius: 15px;
+}
