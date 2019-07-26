@@ -60,14 +60,14 @@ export default class Tableau extends Component {
                                     <td>{obj.place_dispo}</td>
                                     <td>{obj.place_reserve}</td>
                                     <td>{obj.prix}  €</td>
-                                    <td>
+                                    <td> 
                                     <Link className="btn btn-primary" to={'/dashboard/atelier/'+obj._id}
  
-                                    id="btn-modifier">Modifier</Link>
+                                    id="btn-modifier">Modifier</Link><br/>
                                  
                                    
-                                  
-                                    {obj.valid == true ?(<button id="visual" onClick={(e)=>{
+                                 
+                                    {obj.valid == true ?(<button id="bottondesactivez" className="btn btn-success" onClick={(e)=>{
                                         e.preventDefault()
                                         axios.get("http://localhost:8080/masqueratelier/"+obj._id).then(res=>{
                                             axios.get('http://localhost:8080/atelier')
@@ -106,7 +106,7 @@ export default class Tableau extends Component {
                                     }
                                 )
 
-    }}><i class="glyphicon glyphicon-ok"></i>Activer</button>)}
+    }} className="btn btn-secondary" id="bottonactivez"><i class="glyphicon glyphicon-ok"></i>Activer</button>)}
 
                                    
 </td>
